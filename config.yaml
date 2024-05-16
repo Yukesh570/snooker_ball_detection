@@ -1,0 +1,9 @@
+path: C:\Users\Yukesh\Downloads\yolo_snooker_dataset
+train: images\train
+val: images\train
+
+
+
+names:
+  0: snookerball
+  1: white_snooker_ball
