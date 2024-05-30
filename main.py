@@ -6,4 +6,4 @@ model = YOLO("yolov8n.yaml")  # build a new model from scratch
 
 
 # Use the model
-results = model.train(data="config.yaml", epochs=20)  # train the model
+results = model.train(data="config.yaml", epochs=50)  # train the model

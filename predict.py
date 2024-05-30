@@ -5,15 +5,15 @@ import cv2
 
 VIDEOS_DIR = os.path.join(r'C:\Users\Yukesh\Downloads', 'snookervideo')
 
-video_path = os.path.join(VIDEOS_DIR, '10.mp4')
-video_path_out = '{}_outt.mp4'.format(video_path)
+video_path = os.path.join(VIDEOS_DIR, 'test-1 .mp4')
+video_path_out = '{}_outut.mp4'.format(video_path)
 
 cap = cv2.VideoCapture(video_path)
 ret, frame = cap.read()
 H, W, _ = frame.shape
 out = cv2.VideoWriter(video_path_out, cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), int(cap.get(cv2.CAP_PROP_FPS)), (W, H))
 
-model_path = os.path.join(r'C:\Users\Yukesh\PycharmProjects\yolo_8', 'runs', 'detect', 'train6', 'weights', 'last.pt')
+model_path = os.path.join(r'C:\Users\Yukesh\PycharmProjects\yolo_8', 'runs', 'detect', 'train10', 'weights', 'last.pt')
 
 # Load a model
 model = YOLO(model_path)  # load a custom model
@@ -30,7 +30,7 @@ while ret:
         if score > threshold:
             cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 1)
             cv2.putText(frame, results.names[int(class_id)].upper(), (int(x1), int(y1 - 10)),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 1, cv2.LINE_AA)
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1, cv2.LINE_AA)
 
     out.write(frame)
     ret, frame = cap.read()
